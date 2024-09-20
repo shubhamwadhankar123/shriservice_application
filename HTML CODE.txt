@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shriservice</title>
+    <style>
+        /* Global Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: url('service.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white; /* Make content white for better contrast */
+        }
+
+        /* Header / Navigation */
+        header {
+            background-color: #232F3E;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+            color: #FFD700; /* Golden hover color */
+        }
+
+        /* Dropdown styling */
+        .dropdown-content, .services-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            color: black;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            min-width: 200px;
+        }
+
+        .dropdown-content li, .services-content li {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .dropdown-content li a, .services-content li a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .dropdown-content li a:hover, .services-content li a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .services-dropdown:hover .services-content {
+            display: block;
+            left: 100%; /* Position it to the right */
+            top: 0;
+        }
+
+        /* Service Details Section */
+        .service-details {
+            padding: 20px;
+            margin: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for readability */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .service-details h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #service-image {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+
+        #service-description {
+            margin-top: 20px;
+        }
+
+        /* Login / Signup Forms */
+        .login-container, .signup-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            max-width: 400px;
+            margin: 100px auto;
+            border-radius: 8px;
+        }
+
+        .login-container h2, .signup-container h2 {
+            text-align: center;
+            color: #232F3E;
+        }
+
+        .login-container input, .signup-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .login-container button, .signup-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #232F3E;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover, .signup-container button:hover {
+            background-color: #3C4043;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #232F3E;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header>
+        <div class="logo">Shriservice</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Products and Services</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Products</a></li>
+                        <li class="services-dropdown">
+                            <a href="#">Services</a>
+                            <ul class="services-content">
+                                <li><a href="#" onclick="showServiceDetails('healthWellnessFamily')">Health and Wellness Services (Family)</a></li>
+                                <li><a href="#" onclick="showServiceDetails('educationChildcare')">Education and Childcare</a></li>
+                                <li><a href="#" onclick="showServiceDetails('homeMaintenance')">Home Maintenance</a></li>
+                                <li><a href="#" onclick="showServiceDetails('financialLegal')">Financial and Legal Services</a></li>
+                                <li><a href="#" onclick="showServiceDetails('leisureEntertainment')">Leisure and Entertainment</a></li>
+                                <li><a href="#" onclick="showServiceDetails('transportationErrands')">Transportation and Errands</a></li>
+                                <li><a href="#" onclick="showServiceDetails('healthWellnessSingle')">Health and Wellness Services (Single)</a></li>
+                                <li><a href="#" onclick="showServiceDetails('homePersonalCare')">Home and Personal Care</a></li>
+                                <li><a href="#" onclick="showServiceDetails('socialDating')">Social and Dating</a></li>
+                                <li><a href="#" onclick="showServiceDetails('financialCareer')">Financial and Career Services</a></li>
+                                <li><a href="#" onclick="showServiceDetails('leisureTravel')">Leisure and Travel</a></li>
+                                <li><a href="#" onclick="showServiceDetails('personalAssistance')">Personal Assistance</a></li>
+                                <li><a href="#" onclick="showServiceDetails('elderlySpecialNeeds')">Services for Elderly or Special Needs</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="login.html">Login / Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Service Details Section -->
+    <section id="service-details" class="service-details">
+        <h2>Select a service to see details</h2>
+        <p>Details about the service will be displayed here when you click on one.</p>
+        <img id="service-image" src="" alt="" style="display: none;">
+        <div id="service-description"></div>
+    </section>
+
+    <!-- Link to Login Page -->
+    <section id="login-link">
+        <a href="login.html" class="login-link">Login / Sign Up</a>
+    </section>
+
+    <script>
+        // JavaScript to dynamically load service details
+        function showServiceDetails(serviceType) {
+            const serviceImage = document.getElementById('service-image');
+            const serviceDescription = document.getElementById('service-description');
+            const serviceDetailsSection = document.getElementById('service-details');
+
+            // Define details for each service type
+            const serviceData = {
+                healthWellnessFamily: {
+                    image: 'healthWellnessFamily.jpg',
+                    description: 'Comprehensive health and wellness services for families, including fitness plans, nutritional advice, and wellness workshops.'
+                },
+                educationChildcare: {
+                    image: 'educationChildcare.jpg',
+                    description: 'Educational support and childcare services to help families balance work and family life effectively.'
+                },
+                homeMaintenance: {
+                    image: 'homeMaintenance.jpg',
+                    description: 'Home maintenance services to keep your home in top shape, including plumbing, electrical, and general repairs.'
+                },
+                financialLegal: {
+                    image: 'financialLegal.jpg',
+                    description: 'Financial planning and legal advice services tailored for individuals and families.'
+                },
+                leisureEntertainment: {
+                    image: 'leisureEntertainment.jpg',
+                    description: 'Entertainment and leisure activities, including event planning, hobbies, and recreational activities.'
+                },
+                transportationErrands: {
+                    image: 'transportationErrands.jpg',
+                    description: 'Transportation services and errand running to simplify your daily tasks and appointments.'
+                },
+                healthWellnessSingle: {
+                    image: 'healthWellnessSingle.jpg',
+                    description: 'Personalized health and wellness services for individuals, including fitness plans and mental health support.'
+                },
+                homePersonalCare: {
+                    image: 'homePersonalCare.jpg',
+                    description: 'Personal care services at home, including assistance with daily activities and personal grooming.'
+                },
+                socialDating: {
+                    image: 'socialDating.jpg',
+                    description: 'Social and dating services to help individuals find connections and build relationships.'
+                },
+                financialCareer: {
+                    image: 'financialCareer.jpg',
+                    description: 'Career coaching and financial advisory services for personal and professional growth.'
+                },
+                leisureTravel: {
+                    image: 'leisureTravel.jpg',
+                    description: 'Travel planning and leisure services to enhance your travel experiences.'
+                },
+                personalAssistance: {
+                    image: 'personalAssistance.jpg',
+                    description: 'Personal assistance services for daily life management, including scheduling and task management.'
+                },
+                elderlySpecialNeeds: {
+                    image: 'elderlySpecialNeeds.jpg',
+                    description: 'Specialized services for the elderly or individuals with special needs, including health and daily living support.'
+                }
+            };
+
+            if (serviceData[serviceType]) {
+                const { image, description } = serviceData[serviceType];
+                serviceImage.src = image;
+                serviceImage.style.display = 'block';
+                serviceDescription.innerHTML = description;
+            } else {
+                serviceImage.style.display = 'none';
+                serviceDescription.innerHTML = 'No details available for this service.';
+            }
+        }
+    </script>
+</body>
+</html>
